@@ -1,13 +1,20 @@
-<!-- This template includes hardcoded data. In future lessons, you will be rendering data dynamically. -->
-<div class="menu-container border border-dark border-3">
-  <div class="card-header col-md-12 bg-info d-flex justify-content-between align-items-center">
-    <h2>
-      The Importance of MVC
-    </h2>
-    <h5>Posted by Aaron on 2022-06-07</h5>
-  </div>
-    <div class="p-3">
-          The Model-View-Controller (MVC) is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller. Each of these components are built to handle specific development aspects of an application. MVC is one of the most frequently used industry-standard web development framework to create scalable and extensible projects.
+<!-- Loop over each object in the projects array -->
+{{#each blogs as |blog|}}
+  <div class='row'>
+    <div class='card'>
+      <div class='card-header'>{{blog.title}}</div>
+      <div class='card-body'>
+        <p class='card-text'>
+          {{blog.content}}
+        </p>
+        <a href='/blogs/{{id}}' class='btn btn-primary'>View Full Blog</a>
+      </div>
+      <div class='card-footer text-muted'>
+        Posted by
+        {{blog.author}}
+        on
+        {{blog.date}}
+      </div>
     </div>
   </div>
-</div>
+{{/each}}
