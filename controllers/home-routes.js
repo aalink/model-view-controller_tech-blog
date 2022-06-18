@@ -29,7 +29,11 @@ router.get('/create-blog', async (req, res) => {
   res.render('create-blog');
 });
 
-
+router.get('/edit-blog', async (req, res) => {
+  // Add a comment describing the purpose of the render method
+  // This method is rendering the 'all' Handlebars.js template. This is how we connect each route to the correct template.
+  res.render('edit-blog');
+});
 
 
 
