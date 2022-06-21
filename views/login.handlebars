@@ -4,8 +4,8 @@
 
     <form class="form login-form">
       <div class="form-group">
-        <label for="email-login">Username:</label>
-        <div><input class="form-input" type="text" id="username-login" /></div>
+        <label for="name-login">Username:</label>
+        <div><input class="form-input" type="text" id="name-login" /></div>
       </div>
       <div class="form-group">
         <label for="password-login">password:</label>
@@ -16,7 +16,8 @@
           /></div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary mt-3" type="submit">login</button>
+        {{!-- <button class="btn btn-primary mt-3" type="submit">login</button> --}}
+        <a type="submit" href="/" class="mt-2 btn btn-primary border border-dark border-3">Login</a>
       </div>
     </form>
   </div>
@@ -29,8 +30,8 @@
         <div><input class="form-input" type="text" id="name-signup" /></div>
       </div>
       {{!-- <div class="form-group">
-        <label for="email-signup">email:</label>
-        <div><input class="form-input" type="text" id="email-signup" /></div>
+        <label for="name-signup">name:</label>
+        <div><input class="form-input" type="text" id="name-signup" /></div>
       </div> --}}
       <div class="form-group">
         <label for="password-signup">password:</label>
@@ -41,7 +42,9 @@
           /></div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary mt-3" type="submit">signup</button>
+        {{!-- <button class="btn btn-primary mt-3" type="submit">signup</button> --}}
+                <a type="submit" href="/" class="mt-2 btn btn-primary border border-dark border-3">Signup</a>
+
       </div>
     </form>
   </div>
