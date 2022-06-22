@@ -1,6 +1,7 @@
-console.log("CONNECTED")
+console.log("PROFILE.JS DETECTED")
 const newFormHandler = async (event) => {
   event.preventDefault();
+  console.log("SAVE POST BUTTON CLICKED")
 
   const name = document.querySelector('#create-post-title').value.trim();
   const description = document.querySelector('#create-post-content').value.trim();
@@ -39,7 +40,7 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('#create-post-save-button')
+  .querySelector('#save-post')
   .addEventListener('submit', newFormHandler);
 
 document
@@ -47,10 +48,10 @@ document
   .addEventListener('click', delButtonHandler);
 
 
-  function test(event) {
-    event.preventDefault()
-    console.log("TEST")
-  }
-  document
-    .getElementById('test')
-    .addEventListener('click', test);
+  // function test(event) {
+  //   event.preventDefault()
+  //   console.log("TEST")
+  // }
+  // document
+  //   .getElementById('test')
+  //   .addEventListener('click', test);
