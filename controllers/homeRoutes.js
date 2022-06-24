@@ -111,6 +111,22 @@ router.get("/edit-blog", (req, res) => {
   });
 });
 
+// router.get("/blogs/:id", (req, res) => {
+//   Post.findByPk(req.params.id)
+
+//     .then((postData) => 
+//     res.render("blog-page", {
+//       ...postData,
+//       logged_in: req.session.logged_in,
+//     }))
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+
+    
+// });
+
 router.get("/blogs/:id", async (req, res) => {
   const postData = await Post.findByPk(req.params.id, {
     include: [
@@ -131,8 +147,8 @@ router.get("/blogs/:id", async (req, res) => {
   const blog = postData.get({ plain: true });
 
   res.render("blog-page", {
-    ...blog,
-    logged_in: true,
+    blog,
+    logged_in: req.session.logged_in,
   });
 });
 
