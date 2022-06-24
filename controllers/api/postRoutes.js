@@ -3,16 +3,16 @@ const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
-  try {
-    const newPost = await Post.create({
-      ...req.body,
-      user_id: req.session.user_id,
+  Post.create({
+    title: req.body.title,
+    content: req.body.content,
+    user_id: req.session.user_id,
+  })
+    .then((postData) => res.json(postData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
-
-    res.status(200).json(newPost);
-  } catch (err) {
-    res.status(400).json(err);
-  }
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
@@ -47,3 +47,19 @@ router.get("/", (req, res) => {
 });
 
 module.exports = router;
+
+// router.post("/", withAuth, async (req, res) => {
+//   try {
+//     const newPost = await Post.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//       title: req.session.title,
+//       content: req.session.content,
+
+//     });
+
+//     res.status(200).json(newPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
