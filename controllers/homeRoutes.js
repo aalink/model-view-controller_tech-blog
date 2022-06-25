@@ -34,15 +34,18 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
-        user_id: req.session.user_id
-      }
-    })
-    const posts = postData.map((post)=>{
-      post.get({plain: true})
-    })
-    res.render("dashboard", posts)
+        user_id: req.session.user_id,
+      },
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(postData);
+    res.render("dashboard", {posts, 
+    logged_in: req.session.logged_in,})
+
+    // res.json(posts);
   } catch (error) {
-    res.redirect("login")
+    res.redirect("login");
   }
   ////////////////////////////////////////////////////////////////
   // USED TO BE THIS CODE ///////////////////////////////////////
@@ -65,7 +68,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
   //   res.status(500).json(err);
   // }
   ////////////////////////////////////////////////////////////////
-
 });
 
 router.get("/login", (req, res) => {
@@ -114,7 +116,7 @@ router.get("/edit-blog", (req, res) => {
 // router.get("/blogs/:id", (req, res) => {
 //   Post.findByPk(req.params.id)
 
-//     .then((postData) => 
+//     .then((postData) =>
 //     res.render("blog-page", {
 //       ...postData,
 //       logged_in: req.session.logged_in,
@@ -124,7 +126,6 @@ router.get("/edit-blog", (req, res) => {
 //       res.status(500).json(err);
 //     });
 
-    
 // });
 
 router.get("/blogs/:id", async (req, res) => {

@@ -17,8 +17,12 @@
         <a type="button" href="/dashboard" class="btn btn-warning border border-dark border-3">DASHBOARD</a>
       </div>
       <div>
+        {{#unless logged_in}}
         <a type="button" href="/login" class="btn btn-success border border-dark border-3">SIGN IN</a>
-        <a type="button" class="btn btn-secondary border border-dark border-3">SIGN OUT</a>
+        {{/unless}}
+        {{#if logged_in}}
+        <a type="button" id="logout" class="btn btn-secondary border border-dark border-3">SIGN OUT</a>
+        {{/if}}
       </div>
     </header>
       <main class="container container-fluid mt-5">
@@ -32,6 +36,7 @@
   </div>
   </body>
 
-</html>
+<script src="/js/logout.js"></script>
 
+</html>
 
